@@ -1,0 +1,28 @@
+.userCard{
+    margin-bottom:30px;
+    & .mainText{
+        margin-bottom:10px;
+        margin-top:26px;
+        font-size:34px;
+        position:relative;
+    }
+    & .picture {
+        display: flex;
+        flex-wrap: wrap;
+        width:630px;
+        margin:5px;
+        &> Image{
+            width:200px;
+            height:200px;
+            margin:5px;
+        }
+    }
+    & .mainContent{
+        position: relative;
+        &>.deleteButton{
+            position: absolute;
+            left:18%;
+            bottom:-56px;
+        }
+    }
+}
