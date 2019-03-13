@@ -164,12 +164,8 @@ class Information extends Component {
   }
   handleChangeName(nameSwitchCheck) {
     this.setState({
-      nameSwitchCheck
-    })
-  }
-  handleChangeCity(citySwitchCheck) {
-    this.setState({
-      citySwitchCheck
+      nameSwitchCheck,
+      citySwitchCheck:nameSwitchCheck
     })
   }
   emptyData() {
@@ -206,7 +202,6 @@ class Information extends Component {
             showAddBtn={this.state.pickerDisabled}
           />
           <AtSwitch title='是否开启神秘功能' checked={this.state.nameSwitchCheck} onChange={this.handleChangeName} />
-          <AtSwitch title='是否隐藏地区' checked={this.state.citySwitchCheck} onChange={this.handleChangeCity} />
           <AtButton
             type='primary'
             formType='submit'
