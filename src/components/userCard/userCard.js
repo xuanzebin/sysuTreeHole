@@ -61,7 +61,7 @@ export default class UserCard extends Component {
     }
     render() {
         if (!this.props.treeHoleStore.messageList[this.props.index]) return true
-        const { createdAt, like, show, files, value, hideName, privateMessage, id } = this.props.treeHoleStore.messageList[this.props.index]
+        const { createdAt, like, expire, show, files, value, hideName, privateMessage, id } = this.props.treeHoleStore.messageList[this.props.index]
 
         this.files = files
         let length = like.length
@@ -79,12 +79,26 @@ export default class UserCard extends Component {
             )
         })
         let time = getDateDiff(new Date(createdAt).getTime())
+        let title
+        if (show) {
+            if (expire) {
+                title='留言已过期'
+            } else {
+                title='已发布到树洞'
+            }
+        } else {
+            if (expire) {
+                title='审核未通过'
+            } else {
+                title='正在审核'
+            }
+        }
         return (
             <View className='userCard'>
                 <AtCard
                     note={time}
                     extra={length === 0 ? '' : `已获得${length}个赞`}
-                    title={show ? '已发布到树洞' : '正在审核'}
+                    title={title}
                     thumb='https://upload-images.jianshu.io/upload_images/11958479-114cc5f2af5f6654.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
                 >
                     {hideName ? (

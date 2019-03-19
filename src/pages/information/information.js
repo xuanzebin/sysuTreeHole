@@ -119,6 +119,7 @@ class Information extends Component {
       let query = new Message()
       query.set('data', JSON.stringify(messageData))
       query.set('show', false)
+      query.set('expire',false)
       let hideName
       if (this.state.nameSwitchCheck) {
         query.set('hideName', true)
@@ -132,6 +133,7 @@ class Information extends Component {
         messageData.id = todo.id
         messageData.hideName = hideName
         messageData.show = false
+        messageData.expire = false
         this.addMessageList(messageData)
         this.interactive()
       })
