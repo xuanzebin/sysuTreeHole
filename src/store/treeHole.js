@@ -42,11 +42,12 @@ const treeHoleStore = observable({
       .find()
       .then(messageList => {
         let messageDataList = messageList.map(message => {
-          let { data, show, hideName } = message.attributes
+          let { data, show, hideName, expire } = message.attributes
           let messageData = JSON.parse(data)
           messageData.createdAt = message.createdAt
           messageData.id = message.id
           messageData.show = show
+          messageData.expire = expire
           messageData.hideName = hideName
           return messageData
         })
