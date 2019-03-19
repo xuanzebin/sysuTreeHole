@@ -1,6 +1,6 @@
 import { AtButton } from 'taro-ui'
 import Taro, { Component } from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Button } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
 
 import './index.scss'
@@ -56,13 +56,13 @@ class Index extends Component {
   render() {
     return (
       <View className='index'>
-        <AtButton 
-          type='primary' 
-          openType='getUserInfo'
-          onGetUserInfo={this.onHandleClick.bind(this)}
-        >
-          进入树洞
-        </AtButton>
+        <View className='buttonWrapper'>
+          <Button
+            openType='getUserInfo'
+            onGetUserInfo={this.onHandleClick.bind(this)}
+          ></Button>
+        </View>
+      
       </View>
     )
   }
